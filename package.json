@@ -1,10 +1,11 @@
 {
-  "name": "Bookito",
+  "name": "bookito",
   "version": "0.1.0",
   "description": "Bookmarks manager",
-  "main": "index.js",
-  "repository": "https://github.com/MathiasSM/Bookito",
-  "author": "Mathias San Miguel",
+  "repository": "github:MathiasSM/Bookito",
+  "homepage": "https://github.com/MathiasSM/Bookito",
+  "bugs": "https://github.com/MathiasSM/Bookito/issues",
+  "author": "Mathias San Miguel <mathiassanmiguel@gmail.com> (https://mathiassm.github.io)",
   "license": "MIT",
   "private": true
 }
