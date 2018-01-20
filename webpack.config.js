@@ -48,6 +48,13 @@ module.exports = function(env, argv){
 
     devtool: env.production ? "source-map" : "eval-source-map", // enum
 
+    devServer: {
+      contentBase: path.resolve(__dirname, "dist"),
+      port: 9000,
+      historyApiFallback: true,
+      host: "0.0.0.0",
+      open: true
+    },
 
     target: "web",
 
