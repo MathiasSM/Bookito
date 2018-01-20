@@ -7,5 +7,8 @@
   "bugs": "https://github.com/MathiasSM/Bookito/issues",
   "author": "Mathias San Miguel <mathiassanmiguel@gmail.com> (https://mathiassm.github.io)",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "webpack": "^3.10.0"
+  }
 }
