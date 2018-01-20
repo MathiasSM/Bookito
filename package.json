@@ -1,0 +1,10 @@
+{
+  "name": "Bookito",
+  "version": "0.1.0",
+  "description": "Bookmarks manager",
+  "main": "index.js",
+  "repository": "https://github.com/MathiasSM/Bookito",
+  "author": "Mathias San Miguel",
+  "license": "MIT",
+  "private": true
+}
