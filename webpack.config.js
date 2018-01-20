@@ -9,7 +9,7 @@ module.exports = function(env, argv){
     output: {
       path: path.resolve(__dirname, "dist"),
       filename: "bundle.js",
-      pathinfo: env.production ? false : true,
+      pathinfo: env.prod ? false : true,
     },
 
     module: {
@@ -46,7 +46,7 @@ module.exports = function(env, argv){
       // ...
     },
 
-    devtool: env.production ? "source-map" : "eval-source-map", // enum
+    devtool: env.prod ? "source-map" : "eval-source-map", // enum
 
     devServer: {
       contentBase: path.resolve(__dirname, "dist"),
@@ -59,7 +59,7 @@ module.exports = function(env, argv){
     target: "web",
 
     performance: {
-      hints: env.production ?  "error" : "warning", // enum
+      hints: env.prod ?  "error" : "warning", // enum
     },
 
     stats: "normal",
