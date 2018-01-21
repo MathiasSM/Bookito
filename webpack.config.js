@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
@@ -9,10 +10,11 @@ const styleLoaders = [
   { loader: 'postcss-loader', options: { sourceMap: true } },
 ];
 
-module.exports = (env, argv) => ({
-  context: __dirname, // project root directory
 
-  entry: "./src/index.js",
+module.exports = (env, argv) => ({
+  context: path.resolve(__dirname, "src"), // project root directory
+
+  entry: "index.js",
 
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -54,7 +56,6 @@ module.exports = (env, argv) => ({
       "node_modules",
       path.resolve(__dirname, "src"),
     ],
-    enforceExtension: true,
     alias: {},
   },
 
