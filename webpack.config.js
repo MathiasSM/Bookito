@@ -11,15 +11,15 @@ const styleLoaders = [
 ];
 
 
-module.exports = (env, argv) => ({
-  context: path.resolve(__dirname, "src"), // project root directory
+module.exports = () => ({
+  context: path.resolve(__dirname, 'src'), // project root directory
 
-  entry: "index.js",
+  entry: 'index.js',
 
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
-    pathinfo: production ? false : true,
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    pathinfo: !production,
   },
 
   module: {
@@ -27,21 +27,21 @@ module.exports = (env, argv) => ({
       {
         resource: {
           test: /\.jsx?$/,
-          include: [ path.resolve(__dirname, "src/") ],
+          include: [path.resolve(__dirname, 'src/')],
         },
         use: [
           {
             loader: 'babel-loader',
             options: {
               presets: ['env', 'react'],
-            }
-          }
+            },
+          },
         ],
       },
       {
         resource: {
           test: /\.[sp]?css$/,
-          include: [ path.resolve(__dirname, "src/styles/") ],
+          include: [path.resolve(__dirname, 'src/styles/')],
         },
         use: production ? ExtractTextWebpackPlugin.extract({
           fallback: styleLoaders[0],
@@ -53,34 +53,34 @@ module.exports = (env, argv) => ({
 
   resolve: {
     modules: [
-      "node_modules",
-      path.resolve(__dirname, "src"),
+      'node_modules',
+      path.resolve(__dirname, 'src'),
     ],
     alias: {},
   },
 
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
-    new ExtractTextWebpackPlugin("styles.css"),
+    new ExtractTextWebpackPlugin('styles.css'),
   ],
 
-  devtool: production ? "source-map" : "eval-source-map", // enum
+  devtool: production ? 'source-map' : 'eval-source-map', // enum
 
   devServer: {
-    contentBase: path.resolve(__dirname, "dist"),
+    contentBase: path.resolve(__dirname, 'dist'),
     port: 9000,
     historyApiFallback: true,
-    host: "0.0.0.0",
-    open: true
+    host: '0.0.0.0',
+    open: true,
   },
 
-  target: "web",
+  target: 'web',
 
   performance: {
-    hints: production ?  "error" : "warning", // enum
+    hints: production ? 'error' : 'warning', // enum
   },
 
-  stats: "normal",
+  stats: 'normal',
 });
