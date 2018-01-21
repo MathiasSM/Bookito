@@ -42,10 +42,6 @@ module.exports = function(env, argv){
       // ...
     ],
 
-    devServer: {
-      // ...
-    },
-
     devtool: env.prod ? "source-map" : "eval-source-map", // enum
 
     devServer: {
