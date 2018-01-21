@@ -1,6 +1,14 @@
 const path = require('path');
 
+
 module.exports = function(env, argv){
+  const plugins = [];
+  if (env.prod) {
+    plugins.push(new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }));
+  };
+
   return {
     context: __dirname, // project root directory
 
