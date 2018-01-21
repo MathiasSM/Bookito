@@ -1,7 +1,7 @@
 {
   "name": "bookito",
   "version": "0.1.0",
-  "description": "Bookmarks manager",
+  "description": "Bookito: Bookmarks manager",
   "repository": "github:MathiasSM/Bookito",
   "homepage": "https://github.com/MathiasSM/Bookito",
   "bugs": "https://github.com/MathiasSM/Bookito/issues",
@@ -20,6 +20,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
     "extract-text-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^2.30.1",
     "postcss-loader": "^2.0.10",
     "style-loader": "^0.19.1",
     "stylelint": "^8.4.0",

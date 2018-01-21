@@ -1,6 +1,10 @@
+const packageJson = require('./package.json');
+
 const webpack = require('webpack');
 const path = require('path');
+
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -64,6 +68,10 @@ module.exports = () => ({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
     new ExtractTextWebpackPlugin('styles.css'),
+    new HtmlWebpackPlugin({
+      title: packageJson.description,
+      minify: production,
+    }),
   ],
 
   devtool: production ? 'source-map' : 'eval-source-map', // enum
