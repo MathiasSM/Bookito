@@ -17,12 +17,14 @@ module.exports = function(env, argv){
         {
           resource: {
             test: /\.jsx?$/,
-            include: [ path.resolve(__dirname, "src/app") ],
+            include: [ path.resolve(__dirname, "src/") ],
           },
           use: [
             {
-              loader: "babel-loader",
-              options: { presets: ["es2015"] },
+              loader: 'babel-loader',
+              options: {
+                presets: ['env', 'react'],
+              }
             }
           ],
         },
