@@ -1,4 +1,5 @@
 const path = require('path');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
 
 module.exports = function(env, argv){
@@ -8,6 +9,13 @@ module.exports = function(env, argv){
       'process.env.NODE_ENV': JSON.stringify('production')
     }));
   };
+
+  const styleLoaders = [
+    { loader: 'style-loader', options: { sourceMap: true, hmr: env.dev } },
+    { loader: 'css-loader', options: { sourceMap: true, importLoaders: 1 } },
+    { loader: 'postcss-loader', options: { sourceMap: true } },
+  ];
+
 
   return {
     context: __dirname, // project root directory
@@ -36,6 +44,16 @@ module.exports = function(env, argv){
             }
           ],
         },
+        {
+          resource: {
+            test: /\.[sp]?css$/,
+            include: [ path.resolve(__dirname, "src/styles/") ],
+          },
+          use: env.prod ? ExtractTextWebpackPlugin.extract({
+            fallback: styleLoaders[0],
+            use: styleLoaders.slice(1),
+          }) : styleLoaders,
+        },
       ],
     },
 
@@ -48,9 +66,9 @@ module.exports = function(env, argv){
       alias: {},
     },
 
-    plugins: [
-      // ...
-    ],
+    plugins: env.prod ? plugins.concat([
+      new ExtractTextWebpackPlugin("styles.css"),
+    ]) : plugins.concat([]),
 
     devtool: env.prod ? "source-map" : "eval-source-map", // enum
 
