@@ -53,6 +53,18 @@ module.exports = () => ({
           use: styleLoaders.slice(1),
         }) : styleLoaders,
       },
+      {
+        resource: {
+          test: /\.(jpg,png,gif,webp)$/,
+          include: [path.resolve(__dirname, 'src/media/')],
+        },
+        use: [
+          {
+            loader: 'url-loader',
+            options: { limit: 8 * 1024 },
+          },
+        ],
+      },
     ],
   },
 
@@ -65,7 +77,7 @@ module.exports = () => ({
   },
 
   plugins: [
-    new webpack.EnvironmentPlugin(['NODE_ENV', 'DEBUG']),
+    new webpack.EnvironmentPlugin({ NODE_ENV: 'development', DEBUG: false }),
     new CleanWebpackPlugin(['dist']),
     new ExtractTextWebpackPlugin('styles.css'),
     new HtmlWebpackPlugin({
