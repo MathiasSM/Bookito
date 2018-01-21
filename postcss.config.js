@@ -19,7 +19,7 @@ module.exports = ({ env }) => ({
     'postcss-focus': {},
     'postcss-size': {},
     'postcss-color-function': {},
-    'css-colorguard': {},
+    'colorguard': {},
     'postcss-flexbugs-fixes': {},
     autoprefixer: { env },
     cssnano: env === 'production' ? { preset: 'default' } : false,
