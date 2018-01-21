@@ -21,10 +21,10 @@
     "webpack-dev-server": "^2.11.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --env.dev",
-    "build": "webpack --env.dev",
-    "start:prod": "webpack-dev-server --env.prod",
-    "build:prod": "webpack --env.prod",
+    "start": "NODE_ENV=development webpack-dev-server",
+    "build": "NODE_ENV=development webpack",
+    "start:prod": "NODE_ENV=production webpack-dev-server",
+    "build:prod": "NODE_ENV=production webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
