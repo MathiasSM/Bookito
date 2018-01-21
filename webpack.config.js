@@ -5,6 +5,7 @@ const path = require('path');
 
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -65,6 +66,7 @@ module.exports = () => ({
 
   plugins: [
     new webpack.EnvironmentPlugin(['NODE_ENV', 'DEBUG']),
+    new CleanWebpackPlugin(['dist']),
     new ExtractTextWebpackPlugin('styles.css'),
     new HtmlWebpackPlugin({
       title: packageJson.description,
