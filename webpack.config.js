@@ -48,10 +48,10 @@ module.exports = () => ({
           test: /\.[sp]?css$/,
           include: [path.resolve(__dirname, 'src/styles/')],
         },
-        use: production ? ExtractTextWebpackPlugin.extract({
+        use: ExtractTextWebpackPlugin.extract({
           fallback: styleLoaders[0],
           use: styleLoaders.slice(1),
-        }) : styleLoaders,
+        }),
       },
       {
         resource: {
